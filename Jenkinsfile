@@ -9,7 +9,10 @@ pipeline {
 
             steps {
                 // sh 'npm install'
-                echo 'building the application...'
+                echo 'building the nodejs application...'
+                nodejs(node-20-16) {
+                    sh 'npm install'
+                }
             }
         }
 
