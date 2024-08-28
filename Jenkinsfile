@@ -11,7 +11,7 @@ pipeline {
                 // sh 'npm install'
                 echo 'building the nodejs application...'
                 nodejs(node-20-16) {
-                    sh 'npm install'
+                    sh 'npm -v'
                 }
             }
         }
