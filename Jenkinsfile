@@ -10,9 +10,9 @@ pipeline {
             steps {
                 // sh 'npm install'
                 echo 'building the nodejs application...'
-                nodejs(node-20-16) {
-                    sh 'npm -v'
-                }
+                nodejs(nodeJSInstallationName: 'node-20-16') {
+                    sh 'npm config ls'
+                }  
             }
         }
 
