@@ -18,10 +18,10 @@ pipeline {
             }                                
             steps {
                 // sh 'npm install'
-                echo 'building-start the nodejs application...'
+                echo 'building-start the nodejs application with params...'
                 nodejs(nodeJSInstallationName: 'node-20-16') {
                     sh 'npm config ls'
-                    sh 'npm run start'
+                    sh 'npm run build'  
                 }  
             }
         }
