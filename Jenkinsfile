@@ -12,6 +12,7 @@ pipeline {
                 echo 'building the nodejs application...'
                 nodejs(nodeJSInstallationName: 'node-20-16') {
                     sh 'npm config ls'
+                    sh 'npm run build'
                 }  
             }
         }
