@@ -1,4 +1,7 @@
 // Estructura caso declarativo
+
+def gv
+
 pipeline {
 
     agent any
@@ -21,7 +24,7 @@ pipeline {
                 echo 'building-start the nodejs application with params...'
                 nodejs(nodeJSInstallationName: 'node-20-16') {
                     sh 'npm config ls'
-                    sh 'npm run build'  
+                    // sh 'npm run build'  
                 }  
             }
         }
@@ -34,11 +37,12 @@ pipeline {
                 }
             }                                
             steps {
-                // sh 'npm install'
-                echo 'stop the nodejs application...'
-                nodejs(nodeJSInstallationName: 'node-20-16') {
-                    sh 'npm run stop'
-                }  
+                // variante con script externo. La variable gv es global
+                script {
+                   gv = load "script.groovy" 
+                   gv.accionParar()
+                }
+                echo 'Continua el step stop en Jenkinsfile...'
             }
         }
 
